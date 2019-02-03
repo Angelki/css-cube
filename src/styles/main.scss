@@ -16,38 +16,55 @@ body {
   transform-style: preserve-3d;
   font: 8vmin / #{$cube-edge} cookie, cursive;
   text-align: center;
+
+  &__face {
+    margin: -0.5 * $cube-edge;
+    width: $cube-edge;
+    height: $cube-edge;
+    box-shadow: 0 0 0 2px;
+    // backface-visibility: hidden;
+
+    &:nth-child(n + 5) {
+      --i: 1;
+      --j: 0;
+    }
+
+    --i: 0;
+    transform: rotate3d(
+        var(--i),
+        calc(1 - var(--i)),
+        0,
+        calc(var(--m, 0) * 90deg)
+      )
+      translateZ(0.5 * $cube-edge);
+  }
 }
 
-.cube__face {
-  margin: -0.5 * $cube-edge;
-  width: $cube-edge;
-  height: $cube-edge;
-  box-shadow: 0 0 0 2px;
+.cube__face:nth-child(n + 5) {
+  --i: 1;
 }
-.cube__face:nth-child(1) {
-  transform: rotateY(0deg) translateZ(0.5 * $cube-edge);
-}
+
 .cube__face:nth-child(2) {
-  transform: rotateY(90deg) translateZ(0.5 * $cube-edge);
+  --m: 1;
 }
 .cube__face:nth-child(3) {
-  transform: rotateY(180deg) translateZ(0.5 * $cube-edge);
+  --m: 2;
 }
 .cube__face:nth-child(4) {
-  transform: rotateY(270deg) translateZ(0.5 * $cube-edge);
+  --m: 3;
 }
 .cube__face:nth-child(5) {
-  transform: rotateX(90deg) translateZ(0.5 * $cube-edge);
+  --m: 1;
 }
 .cube__face:nth-child(6) {
-  transform: rotateX(-90deg) translateZ(0.5 * $cube-edge);
+  --m: -1;
 }
 .cube {
-  animation: ani 6s ease-in-out infinite;
+  animation: ani 8s ease-in-out infinite;
 }
 
 @keyframes ani {
   to {
-    transform: rotateY(1turn) rotateX(1turn);
+    transform: rotate3d(1, 1, 1, 1turn) rotate3d(1, -1, 1, 1turn);
   }
 }
