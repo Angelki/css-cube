@@ -1,4 +1,6 @@
-- var n = 12;
-style :root { --n: #{n} }
-while n--
-   .cube(style=`--i: ${n}`)
+- var txt = ['react', 'vue', 'angular', 'pug', 'scss', 'webpack'];
+- var n = txt.length;
+
+.cube
+  while n--
+    .cube__face #{txt[n]}

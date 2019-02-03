@@ -1,52 +1,53 @@
-$color_background: #111;
-
-.cube {
-  position: relative;
-  height: 50%;
-  width: calc((100% - (var(--n) - 1) * 5px) / var(--n));
-  background-color: #000;
-  transform-style: preserve-3d;
-  border-right: 1px solid #222;
-  transform: rotateX(0deg) translateY(0) perspective(750px);
-  animation: flow 1.5s ease-in-out calc(-0.125s * var(--i)) infinite alternate;
-
-  &:after {
-    content: "";
-    display: block;
-    height: 100%;
-    background-color: #222;
-    border-right: 1px solid #333;
-    transform-origin: right top;
-    transform: rotateX(-90deg);
-  }
-}
-
-@keyframes flow {
-  to {
-    border-color: transparent;
-    transform: rotateX(-10deg) translateY(85%) perspective(0px);
-  }
-}
-
-//
-// Page default styles
-//
-
-* {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: none;
-  box-sizing: border-box;
-}
+$cube-edge: 4em;
 
 body {
-  background-color: $color_background;
-  background: linear-gradient(#2b2b2e, $color_background);
-  display: flex;
   height: 100vh;
-  justify-content: space-between;
-  align-items: flex-end;
-  box-shadow: inset 0 -100px 75px -25px rgba(red, 0.125);
-  overflow: hidden;
+  perspective: 25em;
+}
+
+[class*="cube"] {
+  position: absolute;
+}
+
+.cube {
+  font-size: 8vmin;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+  font: 8vmin / #{$cube-edge} cookie, cursive;
+  text-align: center;
+}
+
+.cube__face {
+  margin: -0.5 * $cube-edge;
+  width: $cube-edge;
+  height: $cube-edge;
+  box-shadow: 0 0 0 2px;
+}
+.cube__face:nth-child(1) {
+  transform: rotateY(0deg) translateZ(0.5 * $cube-edge);
+}
+.cube__face:nth-child(2) {
+  transform: rotateY(90deg) translateZ(0.5 * $cube-edge);
+}
+.cube__face:nth-child(3) {
+  transform: rotateY(180deg) translateZ(0.5 * $cube-edge);
+}
+.cube__face:nth-child(4) {
+  transform: rotateY(270deg) translateZ(0.5 * $cube-edge);
+}
+.cube__face:nth-child(5) {
+  transform: rotateX(90deg) translateZ(0.5 * $cube-edge);
+}
+.cube__face:nth-child(6) {
+  transform: rotateX(-90deg) translateZ(0.5 * $cube-edge);
+}
+.cube {
+  animation: ani 6s ease-in-out infinite;
+}
+
+@keyframes ani {
+  to {
+    transform: rotateY(1turn) rotateX(1turn);
+  }
 }
