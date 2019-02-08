@@ -22,43 +22,46 @@ body {
     width: $cube-edge;
     height: $cube-edge;
     box-shadow: 0 0 0 2px;
-    // backface-visibility: hidden;
-
-    &:nth-child(n + 5) {
-      --i: 1;
-      --j: 0;
-    }
-
-    --i: 0;
-    transform: rotate3d(
-        var(--i),
-        calc(1 - var(--i)),
-        0,
-        calc(var(--m, 0) * 90deg)
-      )
-      translateZ(0.5 * $cube-edge);
   }
 }
 
-.cube__face:nth-child(n + 5) {
-  --i: 1;
+// use rotate3d replace rotateXYZ
+.cube__face {
+  transform: rotate3d(var(--i), var(--j), 0, calc(var(--m) * 90deg))
+    translateZ(0.5 * $cube-edge);
+
+  &:nth-child(1) {
+    --i: 0;
+    --j: 1;
+    --m: 0;
+  }
+  &:nth-child(2) {
+    --i: 0;
+    --j: 1;
+    --m: 1;
+  }
+  &:nth-child(3) {
+    --i: 0;
+    --j: 1;
+    --m: 2;
+  }
+  &:nth-child(4) {
+    --i: 0;
+    --j: 1;
+    --m: 3;
+  }
+  &:nth-child(5) {
+    --i: 1;
+    --j: 0;
+    --m: 1;
+  }
+  &:nth-child(6) {
+    --i: 1;
+    --j: 0;
+    --m: -1;
+  }
 }
 
-.cube__face:nth-child(2) {
-  --m: 1;
-}
-.cube__face:nth-child(3) {
-  --m: 2;
-}
-.cube__face:nth-child(4) {
-  --m: 3;
-}
-.cube__face:nth-child(5) {
-  --m: 1;
-}
-.cube__face:nth-child(6) {
-  --m: -1;
-}
 .cube {
   animation: ani 8s ease-in-out infinite;
 }
