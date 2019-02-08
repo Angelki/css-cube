@@ -1,7 +1,9 @@
-- var txt = ['react', 'vue', 'angular', 'pug', 'scss', 'webpack'];
-- var num = ['6', '5', '4', '3', '2', '1'];
-- var n = txt.length;
+- var cubeList = ['react', 'vue', 'angular'];
+- var num = cubeList.length;
 
-.cube
-  while n--
-    .cube__face #{num[n]}
+  while num--
+    - n = 6;
+    div(class="cube "+cubeList[num])
+      while n--
+        .cube__face 
+

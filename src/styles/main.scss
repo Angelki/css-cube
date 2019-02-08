@@ -1,8 +1,9 @@
-$cube-edge: 4em;
+$cube-edge: 2em;
 
 body {
   height: 100vh;
-  perspective: 25em;
+  // perspective: 25em;
+  background-color: #1e2428;
 }
 
 [class*="cube"] {
@@ -25,10 +26,37 @@ body {
   }
 }
 
+.react {
+  top: 50%;
+  left: 50%;
+}
+.angular {
+  top: 50%;
+  left: 30%;
+}
+.vue {
+  top: 50%;
+  left: 70%;
+}
+
+.angular .cube__face {
+  background-color: rgba(221, 0, 49, 0.8);
+  box-shadow: rgb(221, 0, 49) 0px 0px 150px;
+}
+.vue .cube__face {
+  background-color: rgba(65, 184, 131, 0.8);
+  box-shadow: rgb(65, 184, 131) 0px 0px 150px;
+}
+
 // use rotate3d replace rotateXYZ
 .cube__face {
   transform: rotate3d(var(--i), var(--j), 0, calc(var(--m) * 90deg))
     translateZ(0.5 * $cube-edge);
+  box-shadow: rgb(97, 218, 251) 0 0 1.2em;
+  background-color: rgba(97, 218, 251, 0.8);
+  border-width: 2.42857px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.4);
 
   &:nth-child(1) {
     --i: 0;
