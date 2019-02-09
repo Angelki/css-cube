@@ -2,32 +2,51 @@ body {
   height: 100vh;
   background-color: #1e2428; }
 
+.btn {
+  display: block;
+  position: relative;
+  line-height: 1.5em;
+  left: 50%;
+  top: 30%;
+  width: 8em;
+  font-weight: 400;
+  color: white;
+  text-align: center;
+  box-shadow: rgba(97, 218, 251, 0.7) 0px 0px 100px;
+  text-transform: uppercase;
+  background: linear-gradient(45deg, #61dafb, #1ac9f9);
+  outline: none;
+  padding: 0.75em 1.5em;
+  border-radius: 4px;
+  text-decoration: none;
+  transform: translate(-50%, -50%); }
+
 [class*="cube"] {
   position: absolute; }
 
 .cube {
   font-size: 8vmin;
-  top: 50%;
+  top: 70%;
   left: 50%;
   transform-style: preserve-3d;
-  font: 8vmin / 2em cookie, cursive;
+  font: 8vmin / 1.5em cookie, cursive;
   text-align: center; }
   .cube__face {
-    margin: -1em;
-    width: 2em;
-    height: 2em;
+    margin: -0.75em;
+    width: 1.5em;
+    height: 1.5em;
     box-shadow: 0 0 0 2px; }
-
-.react {
-  top: 50%;
-  left: 50%; }
+  .cube__wrapper:hover {
+    transform-style: preserve-3d;
+    animation: scale 0.5s ease-in 1 forwards; }
 
 .angular {
-  top: 50%;
   left: 30%; }
 
+.react {
+  left: 50%; }
+
 .vue {
-  top: 50%;
   left: 70%; }
 
 .angular .cube__face {
@@ -39,10 +58,10 @@ body {
   box-shadow: #41b883 0px 0px 150px; }
 
 .cube__face {
-  transform: rotate3d(var(--i), var(--j), 0, calc(var(--m) * 90deg)) translateZ(1em);
+  transform: rotate3d(var(--i), var(--j), 0, calc(var(--m) * 90deg)) translateZ(0.75em);
   box-shadow: #61dafb 0 0 1.2em;
   background-color: rgba(97, 218, 251, 0.8);
-  border-width: 2.42857px;
+  border-width: 1px;
   border-style: solid;
   border-color: rgba(255, 255, 255, 0.4); }
   .cube__face:nth-child(1) {
@@ -76,4 +95,8 @@ body {
 @keyframes ani {
   to {
     transform: rotate3d(1, 1, 1, 1turn) rotate3d(1, -1, 1, 1turn); } }
+
+@keyframes scale {
+  to {
+    transform: scale3d(1.5, 1.5, 1.5); } }
 
