@@ -1,4 +1,4 @@
-$cube-edge: 2em;
+$cube-edge: 1em;
 
 body {
   height: 100vh;
@@ -12,30 +12,29 @@ body {
 
 .cube {
   font-size: 8vmin;
-  top: 50%;
+  top: 70%;
   left: 50%;
   transform-style: preserve-3d;
   font: 8vmin / #{$cube-edge} cookie, cursive;
   text-align: center;
-
   &__face {
     margin: -0.5 * $cube-edge;
     width: $cube-edge;
     height: $cube-edge;
     box-shadow: 0 0 0 2px;
   }
-}
-
-.react {
-  top: 50%;
-  left: 50%;
+  &__wrapper:hover {
+    animation: scale 0.5s ease-in 1 forwards;
+  }
 }
 .angular {
-  top: 50%;
   left: 30%;
 }
+.react {
+  left: 50%;
+}
+
 .vue {
-  top: 50%;
   left: 70%;
 }
 
@@ -91,11 +90,17 @@ body {
 }
 
 .cube {
-  animation: ani 8s ease-in-out infinite;
+  animation: ani 48s ease-in-out infinite;
 }
 
 @keyframes ani {
   to {
     transform: rotate3d(1, 1, 1, 1turn) rotate3d(1, -1, 1, 1turn);
+  }
+}
+
+@keyframes scale {
+  to {
+    transform: scale3d(1.5, 1.5, 1.5);
   }
 }
