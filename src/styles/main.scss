@@ -1,9 +1,29 @@
-$cube-edge: 1em;
+$cube-edge: 1.5em;
 
 body {
   height: 100vh;
   // perspective: 25em;
   background-color: #1e2428;
+}
+
+.btn {
+  display: block;
+  position: relative;
+  line-height: 1.5em;
+  left: 50%;
+  top: 30%;
+  width: 8em;
+  font-weight: 400;
+  color: white;
+  text-align: center;
+  box-shadow: rgba(97, 218, 251, 0.7) 0px 0px 100px;
+  text-transform: uppercase;
+  background: linear-gradient(45deg, rgb(97, 218, 251), rgb(26, 201, 249));
+  outline: none;
+  padding: 0.75em 1.5em;
+  border-radius: 4px;
+  text-decoration: none;
+  transform: translate(-50%, -50%);
 }
 
 [class*="cube"] {
@@ -23,7 +43,9 @@ body {
     height: $cube-edge;
     box-shadow: 0 0 0 2px;
   }
+
   &__wrapper:hover {
+    transform-style: preserve-3d;
     animation: scale 0.5s ease-in 1 forwards;
   }
 }
@@ -53,7 +75,7 @@ body {
     translateZ(0.5 * $cube-edge);
   box-shadow: rgb(97, 218, 251) 0 0 1.2em;
   background-color: rgba(97, 218, 251, 0.8);
-  border-width: 2.42857px;
+  border-width: 1px;
   border-style: solid;
   border-color: rgba(255, 255, 255, 0.4);
 
@@ -90,7 +112,7 @@ body {
 }
 
 .cube {
-  animation: ani 48s ease-in-out infinite;
+  animation: ani 8s ease-in-out infinite;
 }
 
 @keyframes ani {
